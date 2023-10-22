@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import studentRoutes from './routes/studentRoutes.js';
 import courseRoutes from './routes/courseRoutes.js';
+import resultRoutes from './routes/resultRoutes.js';
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 // Include routes
 app.use('/api/students', studentRoutes);
 app.use('/api/courses', courseRoutes);
+app.use('/api/results', resultRoutes);
 
 // Start the server
 app.listen(port, () => {
