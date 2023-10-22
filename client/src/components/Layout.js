@@ -27,8 +27,8 @@ function Layout({ children }) {
     { to: '/students', text: 'Students List' },
     { to: '/add-courses', text: 'Add New Courses' },
     { to: '/courses', text: 'Courses List' },
-    { to: '#', text: 'Add New Results' },
-    { to: '#', text: 'Results List' },
+    { to: '/add-results', text: 'Add New Results' },
+    { to: '/results', text: 'Results List' },
   ];
 
   return (

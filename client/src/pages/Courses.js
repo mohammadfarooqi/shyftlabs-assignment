@@ -5,7 +5,7 @@ import moment from 'moment';
 
 function Courses() {
   const [courses, setCourses] = useState([]);
-  const [loading, setLoading] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {

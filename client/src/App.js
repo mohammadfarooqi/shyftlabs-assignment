@@ -8,6 +8,8 @@ import AddStudents from './pages/AddStudents';
 import Students from './pages/Students';
 import Courses from './pages/Courses';
 import AddCourses from './pages/AddCourses';
+import Results from './pages/Results';
+import AddResults from './pages/AddResults';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
   {
     path: '/courses',
     element: <Courses />,
+  },
+  {
+    path: '/add-results',
+    element: <AddResults />,
+  },
+  {
+    path: '/results',
+    element: <Results />,
   },
 ]);
 
