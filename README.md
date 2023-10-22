@@ -2,6 +2,10 @@
 
 Frontend and Backend for ShiftLabs Assignment.
 
+## Demo Link
+
+[Website Demo](http://shyftlabs-demo.keenver.com/)
+
 ## Readme Files
 
 Here are README.md files for client and server that provide more detailed information about specific aspects of the project:
