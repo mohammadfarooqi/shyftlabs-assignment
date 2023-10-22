@@ -1,14 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Sidebar } from 'flowbite-react';
-import {
-  HiArrowSmRight,
-  HiChartPie,
-  HiInbox,
-  HiShoppingBag,
-  HiTable,
-  HiUser,
-  HiViewBoards,
-} from 'react-icons/hi';
 import Nav from './Nav';
 import { cn } from '../utils';
 
@@ -29,6 +20,16 @@ function Layout({ children }) {
       window.removeEventListener('click', eventFunction);
     };
   }, []);
+
+  const navItems = [
+    { to: '/', text: 'Home' },
+    { to: '/add-students', text: 'Add New Students' },
+    { to: '/students', text: 'Students List' },
+    { to: '/add-courses', text: 'Add New Courses' },
+    { to: '/courses', text: 'Courses List' },
+    { to: '#', text: 'Add New Results' },
+    { to: '#', text: 'Results List' },
+  ];
 
   return (
     <>
@@ -72,16 +73,23 @@ function Layout({ children }) {
             <Sidebar aria-label="Default sidebar example">
               <Sidebar.Items>
                 <Sidebar.ItemGroup>
-                  <Sidebar.Item href="#" icon={HiChartPie} className="active">
-                    <p>Dashboard</p>
-                  </Sidebar.Item>
+                  {navItems.map((item, idx) => (
+                    <Sidebar.Item href={item.to} key={idx}>
+                      <p>{item.text}</p>
+                    </Sidebar.Item>
+                  ))}
                 </Sidebar.ItemGroup>
               </Sidebar.Items>
             </Sidebar>
           </div>
         </aside>
 
-        <div className="p-4 flex-grow">{children}</div>
+        <div
+          className="p-4 flex-grow"
+          style={{ backgroundColor: 'rgb(31 41 55' }}
+        >
+          {children}
+        </div>
       </div>
     </>
   );
