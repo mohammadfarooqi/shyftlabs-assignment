@@ -5,9 +5,9 @@ import { students as StudentsApi } from '../services';
 import { results as ResultsApi } from '../services';
 
 const initialValues = {
-  student_id: '',
-  course_id: '',
-  grade: '',
+  student_id: null,
+  course_id: null,
+  grade: null,
 };
 
 const initialLoading = {
@@ -72,7 +72,7 @@ function AddResults() {
 
     try {
       await ResultsApi.create(result);
-      setValues(initialValues);
+      setValues({ ...initialValues });
       alert(`Result has been successfully added.`);
     } catch (error) {
       console.error('Error:', error);
@@ -83,6 +83,8 @@ function AddResults() {
   const onChangeValue = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
+
+  console.log('vaues', values);
 
   return (
     <>
@@ -103,8 +105,13 @@ function AddResults() {
               name="course_id"
               required
               onChange={onChangeValue}
+              defaultValue={values.course_id}
             >
-              <option key="empty" value={null}></option>
+              <option
+                key="empty"
+                value={null}
+                selected={values.course_id == null}
+              ></option>
               {courses.map((course) => (
                 <option key={course.id} value={course.id}>
                   {course.name}
@@ -121,8 +128,13 @@ function AddResults() {
               name="student_id"
               required
               onChange={onChangeValue}
+              defaultValue={values.student_id}
             >
-              <option key="empty" value={null}></option>
+              <option
+                key="empty"
+                value={null}
+                selected={values.student_id == null}
+              ></option>
               {students.map((student) => (
                 <option key={student.id} value={student.id}>
                   {student.first_name} {student.last_name}
@@ -134,8 +146,18 @@ function AddResults() {
             <div className="mb-2 block">
               <Label htmlFor="grades" value="Select grade" />
             </div>
-            <Select id="grades" name="grade" required onChange={onChangeValue}>
-              <option key="empty" value={null}></option>
+            <Select
+              id="grades"
+              name="grade"
+              required
+              onChange={onChangeValue}
+              defaultValue={values.grade}
+            >
+              <option
+                key="empty"
+                value={null}
+                selected={values.grade == null}
+              ></option>
               {GRADES.map((grade, idx) => (
                 <option key={idx} value={grade}>
                   {grade}
